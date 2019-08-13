@@ -4,7 +4,9 @@ const passWord = document.getElementById("password");
 
 const checkInfo = () =>{
     event.preventDefault();
+   
     if(logIn.value !== "" && passWord.value !== ""){ 
+        console.log(logIn.value)
         document.location.href = "public/planing.html"
     }
 };

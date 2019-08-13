@@ -16,7 +16,6 @@ const addNote = () =>{
     taskObj.body = taskBody.value;
     taskObj.id = `note_${identicator}`;
     taskObj.status = "newTask";
-    console.log(taskObj);
     localStorage.setItem(`Item_${identicator}`,JSON.stringify(taskObj));
     creatingPost(identicator)
     clean();
@@ -59,11 +58,11 @@ const creatingPost = (id) =>{
     document.getElementById(`newTaskTitle_${identicator}`).innerHTML = taskObj_1.title;
     document.getElementById(`descriptionTitle_${identicator}`).innerHTML = "Description:";
     document.getElementById(`taskBody_${identicator}`).innerHTML = taskObj_1.body;
-    changeStatus(identicator);
+    changeStatus();
     
 }
 
-const changeStatus = (id) =>{
+const changeStatus = () =>{
     const statusForm = document.createElement("form");
     const statusContainer = document.createElement("div");
     const statusLabel = document.createElement("label");
@@ -112,20 +111,20 @@ changeCurrentPosition = () =>{
         }
 }
 
-inProgress = () =>{
+const inProgress = () =>{
    newTaskContainer.parentNode.removeChild(newTaskContainer) ;
    const inProgressContainer = document.getElementById("in-progress-tasks");
    inProgressContainer.appendChild(newTaskContainer);
 }
 
-onHold = () =>{
+const onHold = () =>{
     newTaskContainer.parentNode.removeChild(newTaskContainer);
     const onHoldContainer = document.getElementById("on-hold");
     onHoldContainer.appendChild(newTaskContainer);
 }
 
 
-done = () =>{
+const done = () =>{
     newTaskContainer.parentNode.removeChild(newTaskContainer);
     const doneContainer = document.getElementById("done");
     doneContainer.appendChild(newTaskContainer);
@@ -138,5 +137,5 @@ const clean = () =>{
 }
 
 const logOut = () =>{
-    document.location.href = "../index.HTML"
+    document.location.href = "../index.html"
 }
